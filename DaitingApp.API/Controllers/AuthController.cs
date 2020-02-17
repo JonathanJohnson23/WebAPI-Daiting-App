@@ -56,7 +56,7 @@ namespace DaitingApp.API.Controllers
 
       if(userFromRepo == null) 
         return Unauthorized();
-
+ 
       var claims = new[]
       {
         new Claim(ClaimTypes.NameIdentifier, userFromRepo.Id.ToString()),
@@ -74,7 +74,7 @@ namespace DaitingApp.API.Controllers
         Expires = DateTime.Now.AddDays(1),
         SigningCredentials = creds
       };
-      
+       
       var tokenHandler = new JwtSecurityTokenHandler();
 
       var token = tokenHandler.CreateToken(tokenDescriptor);
